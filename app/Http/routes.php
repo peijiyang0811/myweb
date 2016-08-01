@@ -36,7 +36,13 @@ Route::get('xianzhi/{id}-{name}',function($id, $name){
 Route::get('/admin/user/add',[
 	'as'=>'uadd',
 	'uses'=>function(){
+		// echo Route::CurrentRouteName();当前路由名称   指的是路由别名
 		echo '用户添加界面';
-	}
+	},
 ]);
+Route::get('test',function(){
+	// echo route('uadd');//使用 路由别名 的路径
+	//重定向路由
+	return redirect()->route('uadd');
+});
 
