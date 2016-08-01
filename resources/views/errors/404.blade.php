@@ -38,10 +38,11 @@
         </style>
     </head>
     <body>
-        <div class="container">
+        <!--<div class="container">
             <div class="content">
                 <div class="title">404 Not Found ......</div>
             </div>
-        </div>
+        </div>-->
+        <img src="../../img/404.jpg">
     </body>
 </html>
