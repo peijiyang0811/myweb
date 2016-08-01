@@ -15,6 +15,14 @@ class LoginMiidleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        //判断是否有某个值
+        if($request->has('uname')){
+            return $next($request);//继续执行下一步操作 
+        }else{
+            echo  '登陆界面';
+        }
+    }
+    public function(){
+        
     }
 }

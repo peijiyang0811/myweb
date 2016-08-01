@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
+<<<<<<< HEAD
         <title>用户添s加</title>
+=======
+        <title>用户添加</title>
+>>>>>>> luyou
     </head>
     <body>
         <form action="{{ url('/user/insert') }}" method="post">
