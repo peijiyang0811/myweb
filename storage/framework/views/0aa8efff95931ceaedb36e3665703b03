@@ -2,13 +2,15 @@
 <html>
     <head>
         <title>用户添加</title>
+
     </head>
     <body>
-        <form action="<?php echo e(url('/user/insert')); ?>" method="post">
+        <form action="<?php echo e(url('/user/insert')); ?>" method="post" enctype="multipart/form-data">
             <?php echo e(csrf_field()); ?>
 
-           用户名 <input type="text" name="uname"> <br><br>
-           密码 <input type="password" name="pwd"> <br><br>
+           用户名 <input type="text" name="uname" value="<?php echo e(old('uname')); ?>"> <br><br>
+           密码 <input type="password" name="pwd" value="<?php echo e(old('pwd')); ?>"> <br><br>
+           头像: <input type="file" name="pic"> <br><br>
            <input type="submit" value="添加用户">
         </form>
     </body>

@@ -95,5 +95,6 @@ Route::get('k1',function(){
 });
 //以上两种 一般不使用
 //资源路由  Route::resource();
+
 //隐式路由  在 控制方法前 要添加上  请求方式 ,驼峰命名法  getIdex
 Route::controller('/user','TestController');//以 user 开头的 路径,都是用  TestController 控制器来控制
