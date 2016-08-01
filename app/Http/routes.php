@@ -32,4 +32,11 @@ Route::get('duoluyou/{name}-{id}',function($name, $id){
 Route::get('xianzhi/{id}-{name}',function($id, $name){
 	echo $id;
 })->where(['id'=>'\d+','name'=>'\w+']);
-//多参数限制
+//路由别名
+Route::get('/admin/user/add',[
+	'as'=>'uadd',
+	'uses'=>function(){
+		echo '用户添加界面';
+	}
+]);
+
