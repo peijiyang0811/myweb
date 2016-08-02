@@ -22,7 +22,5 @@ class LoginMiidleware
             echo  '登陆界面';
         }
     }
-    public function(){
-        
-    }
+    
 }
