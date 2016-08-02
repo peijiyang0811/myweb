@@ -69,7 +69,7 @@ Route::get('admin/delete',function(){
 
 	//路由组使用中间件
 	Route::group(['middleware'=>'login'],function(){});
-
+	
 */
 	//404 页面
 	Route::get('t1',function(){
@@ -98,3 +98,6 @@ Route::get('k1',function(){
 
 //隐式路由  在 控制方法前 要添加上  请求方式 ,驼峰命名法  getIdex
 Route::controller('/user','TestController');//以 user 开头的 路径,都是用  TestController 控制器来控制
+
+//隐式路由的使用  商品操作  
+Route::controller('/goods','GoodsController');
