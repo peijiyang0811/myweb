@@ -101,3 +101,22 @@ Route::controller('/user','TestController');//以 user 开头的 路径,都是�
 
 //隐式路由的使用  商品操作  
 Route::controller('/goods','GoodsController');
+//设置 cookie
+Route::get('/setcookie',function(){
+	\Cookie::queue('name','iloveyou',10);
+	// \Cookie::queue('name','admin',10);//最后一个参数是  存活时间  分钟
+	// 第二种方式
+	// return response('name')->withCookie('uid',10,10);
+	// return response('haha')->withCookie('uid',10,10);
+});
+//获取cookie  
+//Route::get('/getcookie','TestController@cookie');
+//-------------------------- 响应 --------------------------
+// Route::get('/str',function(){
+// 	// return 'aaaaa';
+// 	// 设置cookie
+// 	return $response('un')->withCookie('name','admin',10);
+// });
+//配置响应 测试 路由
+Route::get('response','TestController@responseText');
+Route::get('shitu','TestController@shitu');

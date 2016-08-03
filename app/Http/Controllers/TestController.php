@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use \DB;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -97,5 +97,59 @@ class TestController extends Controller
     //用户删除操作
     public function del($id){
     	echo $id;
+    }
+    //获取 cookie
+    public function cookie(Request $request){
+        echo $request->cookie('uid');
+    }
+    /**
+     * 响应 response
+     */
+    public function responseText(){
+        // echo 'aaa';
+        //响应模板
+        // return view('user.add');// /views/user/add.blade.php
+        //返回一个 json 格式的数据
+        // return response()->json(['a'=>'aaa','b'=>'bb']);
+        //下载文件
+        //response()->download('config.app');
+        //页面跳转
+        //return redirect('goods/add');
+    }
+    public function shitu(){
+        //分配数据到模板  //数据放在数组中 
+        // return view('user.shitu',[
+        //     'name'=>'admin',
+        //     'title'=>'CXS 小队'
+        // ]);
+        /*return view('user.zhanwei01',[
+                'age'=>'20'
+            ]);*/
+        // 数据库操作  一般使用  需要写完整的 语句
+        $res = DB::select('select id,name from user');
+        //::update  insert delete  都需要些完整语句   
+        //一般语句   删除表操作  drop
+
+        //--------------- 查询构造器 --------------
+        $res = DB::table('user')->get();//获取全部
+        $res = DB::table('user')->first();//获取第一条数据
+        $res = DB::table('user')->value('name');//获取单条数据的一个字段
+        $res = DB::table('user')->lists('money');//获取单条数据的一列字段
+        //增删改操作的 条件  总是 放在动作的后面
+        $res = DB::table('user')->where('id','=',24)->delete();
+        $res = DB::table('user')->limit(5)->get();
+        $res = DB::table('user')->orderBy('money','desc')->limit(5)->get();
+        $res = DB::table('user')->count();//获取数据总数
+        $res = DB::table('user')->select('id','name','money')->get();//按指定字段查找
+        //beteen and = whereBetween  in   whereIn
+        $res = DB::table('user')->whereBetween('id',[1,6])->get();
+        /*$res = DB::table('user')->where(function($query){
+            $query->where('id','>',10)
+                  ->where('money','>',20000); 
+        });*/
+        $res = DB::table('user')->where('id','>',10)->where('money','>',10000)->get(); 
+        dd($res);
+        
+
     }
 }
